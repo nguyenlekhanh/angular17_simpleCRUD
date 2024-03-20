@@ -3,13 +3,15 @@ import { IEmployee } from '../interfaces/employee';
 import { HttpService } from '../http.service';
 import {MatTableModule} from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
   standalone: true,
   imports: [
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterLink
   ],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'

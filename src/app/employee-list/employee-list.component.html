@@ -1,5 +1,5 @@
 @if(employeeList && employeeList.length > 0) {
-    <div class="flex justify-end p-8"><button mat-raised-button color="primary">Add Employee</button></div>
+    <div class="flex justify-end p-8"><button mat-raised-button color="primary" routerLink="create-employee">Add Employee</button></div>
 <table mat-table [dataSource]="employeeList" class="mat-elevation-z8 w-full">
 
     <!--- Note that these columns can be defined in any order.
