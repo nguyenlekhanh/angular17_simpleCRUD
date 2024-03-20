@@ -5,6 +5,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { HttpService } from '../http.service';
 import { IEmployee } from '../interfaces/employee';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employee-form',
@@ -23,6 +24,8 @@ export class EmployeeFormComponent {
   formBuilder = inject(FormBuilder);
   router = inject(Router);
   activeRoute = inject(ActivatedRoute);
+
+  toaster = inject(ToastrService);
 
   employeeForm = this.formBuilder.group({
     name: ['', [Validators.required]],
@@ -62,11 +65,13 @@ export class EmployeeFormComponent {
     if(this.isEdit) {
       this.http.updateEmployee(this.employeeId, employee).subscribe(() => {
         console.log("success");
+        this.toaster.success("Record updated successfully.");
         this.router.navigateByUrl('/employee-list');
       });
     } else {
       this.http.createEmployee(employee).subscribe(() => {
         console.log("success");
+        this.toaster.success("Record added successfully.");
         this.router.navigateByUrl('/employee-list');
       });
     }

@@ -4,6 +4,7 @@ import { HttpService } from '../http.service';
 import {MatTableModule} from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employee-list',
@@ -23,6 +24,8 @@ export class EmployeeListComponent {
 
   route = inject(Router);
 
+  toaster = inject(ToastrService);
+
   ngOnInit() {
     this.getEmployeeFromServer();
   }
@@ -41,6 +44,7 @@ export class EmployeeListComponent {
     this.httpService.deleteEmployee(id).subscribe((result) => {
       //this.employeeList = this.employeeList.filter(x => x.id != id);
       this.getEmployeeFromServer();
+      this.toaster.success("Record deleted successfully.");
     });
   }
 }
