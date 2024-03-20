@@ -2,12 +2,14 @@ import { Component, inject } from '@angular/core';
 import { IEmployee } from '../interfaces/employee';
 import { HttpService } from '../http.service';
 import {MatTableModule} from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-employee-list',
   standalone: true,
   imports: [
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'
