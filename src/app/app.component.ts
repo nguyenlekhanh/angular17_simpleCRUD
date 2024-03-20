@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     RouterOutlet,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    EmployeeListComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
