@@ -24,9 +24,12 @@ export class EmployeeListComponent {
   route = inject(Router);
 
   ngOnInit() {
+    this.getEmployeeFromServer();
+  }
+
+  getEmployeeFromServer() {
     this.httpService.getAllEmployee().subscribe((result) => {
       this.employeeList = result;
-      console.log(this.employeeList);
     });
   }
 
@@ -35,6 +38,9 @@ export class EmployeeListComponent {
   }
 
   delete(id: number) {
-
+    this.httpService.deleteEmployee(id).subscribe((result) => {
+      //this.employeeList = this.employeeList.filter(x => x.id != id);
+      this.getEmployeeFromServer();
+    });
   }
 }
